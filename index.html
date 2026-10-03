@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Groove – Music Player</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Syne:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="player">
+
+    <!-- Turntable -->
+    <section class="deck" aria-hidden="true">
+      <div class="turntable">
+        <div class="record" id="record"><div class="label"></div></div>
+        <div class="tonearm" id="tonearm"><span class="head"></span></div>
+      </div>
+    </section>
+
+    <!-- Controls + playlist -->
+    <section class="panel">
+      <div class="meta">
+        <h1 id="title">Loading…</h1>
+        <p id="artist"></p>
+      </div>
+
+      <div class="seek-row">
+        <span id="current">0:00</span>
+        <input type="range" id="seek" min="0" max="1000" value="0" aria-label="Seek">
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button id="shuffle" class="icon-btn" aria-label="Shuffle" aria-pressed="false">
+          <svg viewBox="0 0 24 24"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+        </button>
+        <button id="prev" class="icon-btn" aria-label="Previous">
+          <svg viewBox="0 0 24 24" class="fill"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg>
+        </button>
+        <button id="play" class="play-btn" aria-label="Play">
+          <svg id="icon-play" viewBox="0 0 24 24" class="fill"><path d="M8 5v14l11-7z"/></svg>
+          <svg id="icon-pause" viewBox="0 0 24 24" class="fill" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <button id="next" class="icon-btn" aria-label="Next">
+          <svg viewBox="0 0 24 24" class="fill"><path d="M16 5h2v14h-2zM4 5l11 7-11 7z"/></svg>
+        </button>
+        <button id="repeat" class="icon-btn" aria-label="Repeat this song" aria-pressed="false">
+          <svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3"/></svg>
+        </button>
+      </div>
+
+      <div class="volume-row">
+        <svg viewBox="0 0 24 24" class="vol-icon"><path d="M4 9v6h4l5 4V5L8 9zM16 8.5a5 5 0 0 1 0 7"/></svg>
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8" aria-label="Volume">
+      </div>
+
+      <ul class="playlist" id="playlist"></ul>
+    </section>
+
+  </main>
+
+  <audio id="audio" preload="metadata"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
